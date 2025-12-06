@@ -1,0 +1,300 @@
+/* ===============================
+   Global Styling
+================================*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: #e3e3e3;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 20px;
+    color: black;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.profile_photo1 {
+    position: absolute;
+    top: 0;
+    left: 12%;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+}
+
+/* ===============================
+   App Container
+================================*/
+.app-container {
+    width: 450px;
+    max-width: 95%;
+    padding: 30px;
+    position: absolute;
+    top: 14%;
+
+
+
+
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+    border-radius: 0.8rem;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-right: 2px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+
+
+}
+
+.title {
+    text-align: center;
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+    animation: slideDown 0.7s ease;
+    z-index: 1000;
+}
+
+.name {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+    animation: slideDown 0.7s ease;
+    z-index: 1100;
+}
+
+/* ===============================
+   Input Section
+================================*/
+.input-box {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+    animation: floatUp 0.8s ease;
+
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+    border-radius: 0.8rem;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-right: 2px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+#quoteInput {
+    flex: 1;
+    padding: 14px;
+    border-radius: 12px;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(5px);
+    transition: 0.3s ease;
+
+
+}
+
+#quoteInput:focus {
+    background: rgba(255, 255, 255, 0.65);
+}
+
+/* Save Button */
+#addBtn {
+    padding: 14px 22px;
+    background: black;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    color: white;
+    transition: 0.3s ease;
+    box-shadow: 0 0 12px rgba(255, 223, 93, 0.5);
+}
+
+#addBtn:hover {
+    transform: translateY(-1px) scale(1.01);
+    background: rgb(57, 57, 57);
+
+}
+
+/* ===============================
+   Quote Cards
+================================*/
+
+#quoteList {
+    list-style: none;
+}
+
+.quote-item {
+    background: rgba(255, 255, 255, 0.28);
+    padding: 18px;
+    border-radius: 16px;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+
+    animation: popIn 0.45s ease;
+    transform-origin: top;
+
+
+}
+
+.quote-text {
+    font-size: 16px;
+    max-width: 75%;
+    line-height: 1.4;
+    font-weight: 500;
+}
+
+/* Delete Button */
+
+.bin-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: rgb(0, 0, 0);
+  cursor: pointer;
+  border: 2px solid rgb(0, 0, 0);
+  transition-duration: 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.bin-bottom {
+  width: 15px;
+  z-index: 2;
+}
+.bin-top {
+  width: 17px;
+  transform-origin: right;
+  transition-duration: 0.3s;
+  z-index: 2;
+}
+.bin-button:hover .bin-top {
+  transform: rotate(45deg);
+}
+.bin-button:hover {
+  background-color: rgb(255, 57, 57);
+  border: 2px solid rgb(255, 57, 57);
+}
+.bin-button:active {
+  transform: scale(0.9);
+}
+.garbage {
+  position: absolute;
+  width: 5px;
+  height: auto;
+  z-index: 1;
+  opacity: 0;
+  transition: all 0.3s;
+}
+.bin-button:hover .garbage {
+  animation: throw 0.4s linear;
+}
+@keyframes throw {
+  from {
+    transform: translate(-400%, -700%);
+    opacity: 0;
+  }
+  to {
+    transform: translate(0%, 0%);
+    opacity: 1;
+  }
+}
+
+
+
+/* ===============================
+   Animations
+================================*/
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes floatUp {
+    0% {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(0.85) translateY(10px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+}
+
+/* ===============================
+   Responsive
+================================*/
+@media (max-width: 480px) {
+
+    .input-box {
+        flex-direction: column;
+    }
+
+    #addBtn {
+        width: 100%;
+    }
+
+    .quote-item {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .delete-btn {
+        align-self: flex-end;
+    }
+}
